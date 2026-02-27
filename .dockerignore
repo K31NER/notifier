@@ -1,0 +1,25 @@
+# Go
+bin/
+app
+*.exe
+*.test
+*.out
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Folders from other services
+admin/
+pgdata/
+
+# Git
+.git
+.gitignore
+
+# Environment
+.env
+*.local
