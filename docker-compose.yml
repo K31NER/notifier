@@ -1,0 +1,18 @@
+services:
+  
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: SenderEmail
+    ports:
+      - "8081:8080"
+    networks:
+      - internal
+    env_file:
+      - .env
+
+# Redes de conexion
+networks:
+  internal:
+    driver: bridge
