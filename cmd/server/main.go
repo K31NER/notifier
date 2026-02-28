@@ -33,16 +33,7 @@ func main() {
 	emailService := service.NewEmailService(gmailProvider)
 	emailHandler := handler.NewEmailHandler(emailService)
 
-	// Solo registrar rutas de autenticación si estamos en modo desarrollo
-	if cfg.APP_ENV != "production" {
-		logger.Log.Info("Development mode detected: Enabling OAuth2 routes (/auth/google, /oauth2callback)")
-		authService := service.NewAuthService(cfg)
-		authHandler := handler.NewAuthHandler(authService)
-
-		r.GET("/auth/google", authHandler.GoogleLogin)
-		r.GET("/oauth2callback", authHandler.Callback)
-	}
-
+	// Rutas
 	r.POST("/send", emailHandler.Send)
 
 	logger.Log.Info(fmt.Sprintf("Server listening on port %s", cfg.PORT))
